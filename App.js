@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+const windowFontScale = Dimensions.get('window').fontScale;
 
 export default function App() {
   const [width, setWidth] = useState(windowWidth);
@@ -22,7 +23,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.propertiesContainer}>
-        <Text style={styles.title}>Window dimensions</Text>
+        <Text style={[styles.title, {fontSize: windowFontScale * 25}]}>Window dimensions</Text>
         <Text style={styles.properties}>Window width: {width}</Text>
         <Text style={styles.properties}>Window height: {height}</Text>
       </View>
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
   },
